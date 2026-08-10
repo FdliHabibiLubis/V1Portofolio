@@ -22,7 +22,20 @@ export default function Navbar() {
   const isDarkPage = pathname === "/" || pathname === "/keahlian";
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
+    let ticking = false;
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setScrolled((prev) => {
+            const isPastThreshold = window.scrollY > 20;
+            return prev !== isPastThreshold ? isPastThreshold : prev;
+          });
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+    handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
