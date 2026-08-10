@@ -5,10 +5,10 @@ import { motion } from "framer-motion";
 import { skills, C } from "../lib/data";
 
 const fadeInUp = {
-  hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+  hidden: { opacity: 0, y: 10 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.2, ease: "easeOut" } },
 };
-const stagger = { hidden: {}, visible: { transition: { staggerChildren: 0.07 } } };
+const stagger = { hidden: {}, visible: { transition: { staggerChildren: 0.02 } } };
 
 export default function KeahlianPage() {
   return (

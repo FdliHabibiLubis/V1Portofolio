@@ -6,10 +6,10 @@ import { motion } from "framer-motion";
 import { C } from "./lib/data";
 
 const fadeInUp = {
-  hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: "easeOut" } },
+  hidden: { opacity: 0, y: 10 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.2, ease: "easeOut" } },
 };
-const stagger = { hidden: {}, visible: { transition: { staggerChildren: 0.09 } } };
+const stagger = { hidden: {}, visible: { transition: { staggerChildren: 0.03 } } };
 
 export default function Home() {
   return (
@@ -107,68 +107,44 @@ export default function Home() {
 
                 {/* Right Column: Profile Photo on Desktop */}
                 <div className="md:col-span-5 flex flex-col items-center md:items-end gap-6">
-                  {/* Photo Container with Hard Mechanical Push Animation (Ide 3) */}
+                  {/* Photo Container with Sleek Neobrutalism Frame */}
                   <motion.div
                     variants={fadeInUp}
-                    className="relative cursor-pointer group flex justify-center select-none transition-transform duration-100 ease-linear hover:-translate-x-1.5 hover:-translate-y-1.5 active:translate-x-1.5 active:translate-y-1.5"
+                    className="relative cursor-pointer group flex justify-center select-none"
                   >
-                    {/* Offset Backdrop Card */}
-                    <div
-                      className="absolute rounded-2xl pointer-events-none transition-all duration-100 ease-linear group-hover:translate-x-2.5 group-hover:translate-y-2.5 group-active:translate-x-0 group-active:translate-y-0"
-                      style={{
-                        width: "100%",
-                        height: "100%",
-                        top: "14px",
-                        left: "14px",
-                        background: C.primary,
-                        boxShadow: "4px 4px 0px #111",
-                      }}
-                    />
-
-                    {/* Offset Accent Shape */}
-                    <div
-                      className="absolute rounded-2xl pointer-events-none transition-all duration-100 ease-linear group-hover:-translate-x-1.5 group-hover:-translate-y-1.5 group-active:translate-x-0 group-active:translate-y-0"
-                      style={{
-                        width: "60%",
-                        height: "40%",
-                        bottom: "-12px",
-                        right: "-8px",
-                        background: C.bgRaised,
-                        border: "2px solid #24352C",
-                      }}
-                    />
+                    {/* Soft Ambient Glow */}
+                    <div className="absolute -top-10 -right-10 w-72 h-72 rounded-full bg-[#0D9488]/15 blur-3xl pointer-events-none" />
 
                     {/* Main Profile Photo Container */}
                     <div
-                      className="relative z-10 w-[240px] h-[290px] sm:w-[270px] sm:h-[330px] lg:w-[300px] lg:h-[360px] rounded-2xl overflow-hidden transition-all duration-100 ease-linear group-hover:border-teal-400 group-hover:shadow-[12px_12px_0px_#111] group-active:shadow-[3px_3px_0px_#111]"
-                      style={{
-                        border: "3px solid #24352C",
-                        boxShadow: "8px 8px 0px #111",
-                      }}
+                      className="relative z-10 w-[250px] h-[310px] sm:w-[280px] sm:h-[350px] lg:w-[310px] lg:h-[380px] rounded-3xl overflow-hidden bg-[#141F19] border-[3.5px] border-[#0D9488] shadow-[8px_8px_0px_#0D9488] transition-all duration-200 ease-out group-hover:-translate-x-1 group-hover:-translate-y-1 group-hover:shadow-[12px_12px_0px_#0D9488]"
                     >
                       <Image
                         src="/assets/images/me.jpeg"
                         alt="Fadli Habibi Lubis"
                         width={400}
-                        height={480}
+                        height={500}
                         sizes="(max-width: 768px) 90vw, 400px"
                         priority
-                        className="w-full h-full object-cover transition-transform duration-100 ease-linear group-hover:scale-[1.03]"
+                        className="w-full h-full object-cover transition-transform duration-300 ease-out group-hover:scale-[1.03]"
                       />
                     </div>
 
-                    {/* Single FRONTEND DEV Badge */}
+                    {/* Top Sticker Badge */}
                     <div
-                      className="absolute -top-4 -left-4 sm:-left-6 px-3.5 py-1.5 rounded-xl text-[10px] font-black tracking-wider uppercase select-none z-20 transition-all duration-100 ease-linear group-hover:scale-105 group-hover:bg-teal-600 group-hover:text-white"
-                      style={{
-                        background: C.bgRaised,
-                        color: C.primary,
-                        border: "2px solid #24352C",
-                        boxShadow: "4px 4px 0px #111",
-                        fontFamily: "var(--font-space-grotesk)",
-                      }}
+                      className="absolute -top-3 -left-3 sm:-left-5 px-3.5 py-1.5 rounded-xl text-[10px] font-black tracking-wider uppercase select-none z-20 bg-[#0D9488] text-white border-2 border-white shadow-[3px_3px_0px_#000] -rotate-3 transition-transform duration-200 group-hover:rotate-0"
+                      style={{ fontFamily: "var(--font-space-grotesk)" }}
                     >
                       FRONTEND DEV
+                    </div>
+
+                    {/* Bottom Status Badge */}
+                    <div
+                      className="absolute -bottom-3 -right-3 sm:-right-4 px-3.5 py-1.5 rounded-full text-[10px] font-bold select-none z-20 bg-[#141F19] text-slate-200 border-2 border-[#24352C] shadow-[3px_3px_0px_#000] flex items-center gap-1.5 rotate-2 transition-transform duration-200 group-hover:rotate-0 animate-float-subtle"
+                      style={{ fontFamily: "var(--font-space-grotesk)" }}
+                    >
+                      <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                      <span>OPEN FOR WORK</span>
                     </div>
 
                   </motion.div>

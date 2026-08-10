@@ -309,3 +309,49 @@ select {
   will-change: transform;
 }
 
+/* ── Abstract Neobrutalism Utilities ── */
+.spin-slow {
+  animation: spin 14s linear infinite;
+}
+
+.text-stroke-teal {
+  -webkit-text-stroke: 1.5px #0D9488;
+  color: transparent;
+}
+
+.text-stroke-white {
+  -webkit-text-stroke: 1.5px #F1F5F9;
+  color: transparent;
+}
+
+/* ── Lightweight GPU-Accelerated Micro Animations (0% CPU Load) ── */
+@keyframes smooth-fade-up {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 10px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.animate-fadeIn {
+  animation: smooth-fade-up 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform, opacity;
+}
+
+@keyframes subtle-float {
+  0%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -5px, 0);
+  }
+}
+
+.animate-float-subtle {
+  animation: subtle-float 4s ease-in-out infinite;
+  will-change: transform;
+}
+
